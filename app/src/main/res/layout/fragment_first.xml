@@ -6,23 +6,192 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_first_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
+    <EditText
+        android:id="@+id/txtNumItems"
+        android:layout_width="0dp"
+        android:layout_height="?attr/minTouchTargetSize"
+        android:layout_marginStart="?attr/dialogPreferredPadding"
+        android:layout_marginTop="?attr/dialogPreferredPadding"
+        android:layout_marginEnd="?attr/dialogPreferredPadding"
+        android:hint="@string/numItems_hint"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:selectAllOnFocus="true"
+        />
 
-    <Button
-        android:id="@+id/button_first"
+    <EditText
+        android:id="@+id/txtNumPerMinute"
+        android:layout_width="0dp"
+        android:layout_height="?attr/minTouchTargetSize"
+        android:layout_marginTop="?attr/dialogPreferredPadding"
+        android:ems="10"
+        android:hint="@string/numPerMinute_hint"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/txtNumItems"
+        app:layout_constraintStart_toStartOf="@+id/txtNumItems"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumItems"
+        android:selectAllOnFocus="true"/>
+
+    <TableLayout
+        android:id="@+id/tblOverclock"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/dialogPreferredPadding"
+        app:layout_constraintEnd_toEndOf="@+id/txtNumPerMinute"
+        app:layout_constraintStart_toStartOf="@+id/txtNumPerMinute"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumPerMinute">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cellPadding"
+                android:text="@string/minBuildings_label"
+                android:textColor="@android:color/tertiary_text_light" />
+
+            <TextView
+                android:id="@+id/txtMinBuildings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/rowSideMargin"
+                android:text="@string/minBuildings_default"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="14pt"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/numBuildings_hint"
+                android:layout_marginEnd="@dimen/cellPadding"/>
+            <EditText
+                android:id="@+id/txtNumBuildings"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/minTouchTargetSize"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/overclockPerc_label"
+                android:textColor="@android:color/tertiary_text_light" />
+
+            <TextView
+                android:id="@+id/txtOverclockPerc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/overclockPerc_default"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="14pt" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tblInputs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/dialogPreferredPadding"
+        app:layout_constraintTop_toBottomOf="@+id/tblOverclock"
+        app:layout_constraintEnd_toEndOf="@+id/tblOverclock"
+        app:layout_constraintStart_toStartOf="@+id/tblOverclock">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cellPadding"
+                android:layout_marginEnd="@dimen/rowSideMargin"
+                android:text="@string/item_label"
+                android:textColor="@android:color/tertiary_text_light"
+                />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/rowSideMargin"
+                android:text="@string/itemNeeded_label"
+                android:textColor="@android:color/tertiary_text_light"
+                />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cellPadding"
+                android:text="@string/itemTotalNeeded_label"
+                android:textColor="@android:color/tertiary_text_light"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/txtItem"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/minTouchTargetSize"
+                android:layout_marginStart="@dimen/cellPadding"
+                android:layout_marginEnd="@dimen/rowSideMargin"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:tag="txtItem"
+                tools:ignore="DuplicateSpeakableTextCheck"
+                android:selectAllOnFocus="true"
+                />
+
+            <EditText
+                android:id="@+id/txtItemNeeded"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/minTouchTargetSize"
+                android:layout_marginEnd="@dimen/rowSideMargin"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:tag="txtItemNeeded"
+                tools:ignore="DuplicateSpeakableTextCheck"
+                android:selectAllOnFocus="true"/>
+
+            <TextView
+                android:id="@+id/txtItemTotalNeeded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemTotalNeeded_default"
+                android:tag="txtItemTotalNeeded"
+                android:layout_marginEnd="@dimen/cellPadding"
+                android:textSize="12pt"
+                />
+        </TableRow>
+
+    </TableLayout>
+    <ImageButton
+        android:id="@+id/btnAddRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
+        android:src="@android:drawable/ic_input_add"
+        android:layout_marginTop="?attr/dialogPreferredPadding"
+        android:contentDescription="@string/addRow_description"
+        app:layout_constraintTop_toBottomOf="@+id/tblInputs"
+        app:layout_constraintEnd_toEndOf="@+id/tblInputs"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
